@@ -123,7 +123,7 @@ function ready([us]) {
     .data(topojson.feature(us, us.objects.counties).features)
     .enter().append("path")
       .attr("fill", function(d) { d.rate=(unemployment.get(d.properties.name));
-                                 console.log(d.rate);
+                                // console.log(d.rate);
             return d3.interpolateReds(unemployment.get(d.properties.name)/mx2010); })
       .attr("d", path)
       .on('mouseover', tip.show)
