@@ -123,12 +123,11 @@ function ready([us]) {
     .data(topojson.feature(us, us.objects.counties).features)
     .enter().append("path")
       .attr("fill", function(d) { d.rate=(unemployment.get(d.properties.name));
+                                 console.log(d.rate);
             return d3.interpolateReds(unemployment.get(d.properties.name)/mx2010); })
       .attr("d", path)
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
-    .append("title")
-      .text(function(d) { return d.rate; });
 
 
   svg.append("path")
@@ -153,5 +152,5 @@ d3.select(self.frameElement).style("height", height + "px");
 
 </script>
 
-
+  <p></p>
 <a href=" https://github.com/ruiyuwangwry/philly_neighbour">link to this project</a>
