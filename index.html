@@ -85,16 +85,6 @@ var color = d3.scaleLinear()
 var g = svg.append("g")
     .attr("class", "key")
     .attr("transform", "translate(0,40)");
-g.append("text")
-    .attr("class", "caption")
-    .attr("x", 0)
-    .attr("y", 100)
-    .text("Earthquake");
-g.append("text")
-    .attr("class", "caption")
-    .attr("x", 0)
-    .attr("y", 120)
-    .text("Frequency");
 
 
 var promises = [
