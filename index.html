@@ -103,7 +103,7 @@ function ready([us]) {
     
     for(var i=0;i<ear.length;++i){
         earl.push(ear[i]);}
-    mx2010=d3.max(earl);
+    mx2010=d3.max(earl)*1.0;
     var colorseq=d3.range(mx2010/9*0.5,mx2010,mx2010/9);
     y = d3.scaleLinear()
         .domain([0,8])
