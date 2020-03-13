@@ -102,7 +102,8 @@ Promise.all(promises).then(ready);
 function ready([us]) {
     
     for(var i=0;i<ear.length;++i){
-        earl.push(ear[i]);}
+        earl.push(ear[i]);
+        console.log(earl[-1];}
     mx2010=d3.max(earl)*1.0;
     console.log(mx2010);
     var colorseq=d3.range(mx2010/9*0.5,mx2010,mx2010/9);
@@ -124,8 +125,8 @@ function ready([us]) {
     .data(topojson.feature(us, us.objects.counties).features)
     .enter().append("path")
       .attr("fill", function(d) { d.rate=(unemployment.get(d.properties.name));
-            console.log(d.properties.name);
-            console.log(unemployment.get(d.properties.name));
+            //console.log(d.properties.name);
+            //console.log(unemployment.get(d.properties.name));
             return d3.interpolateReds(unemployment.get(d.properties.name)/mx2010); })
       .attr("d", path)
       .on('mouseover', tip.show)
