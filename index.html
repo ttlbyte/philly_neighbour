@@ -102,8 +102,9 @@ Promise.all(promises).then(ready);
 function ready([us]) {
     
     for(var i=0;i<ear.length;++i){
-        earl.push(ear[i]);
-        console.log(earl[-1]);}
+        earl.push(ear[i]);}
+  
+  console.log(earl);
     mx2010=d3.max(earl)*1.0;
     console.log(mx2010);
     var colorseq=d3.range(mx2010/9*0.5,mx2010,mx2010/9);
