@@ -24,6 +24,10 @@
 
 </style>
 <body>
+
+<p>Plot of confirmed COVID19 patients near Philadelphia</p>
+<p></p>
+  
 <script src="d3.v5.min.js"></script>
 <script src="topojson.v2.min.js"></script>
 <script src="d3-dsv.min.js"></script>
@@ -92,8 +96,7 @@ var promises = [
   d3.csv("nb.csv", function(d) { 
       ear.push(d["nb"]);
       //console.log(ear);
-      unemployment.set(d.States, +(d["nb"])); 
-      //srlist[d.States]=d.Region;
+      unemployment.set(d.Counties, +(d["nb"])); 
       })]
 //
 
@@ -158,5 +161,6 @@ d3.select(self.frameElement).style("height", height + "px");
 </script>
 
   <p></p>
-<p>Plot of COVID19 patients near Philadelphia</p>
+
 <a href=" https://github.com/ruiyuwangwry/philly_neighbour">link to this project</a>
+<a href="https://github.com/ruiyuwangwry/philly_neighbour/blob/master/nb.csv">CSV file of the data</a>  
