@@ -26,7 +26,7 @@
 </style>
 <body>
 
-<p>Plot of confirmed COVID19 patients near Philadelphia</p>
+<p>Plot of number of confirmed COVID19 patients near Philadelphia</p>
 <p></p>
   
 <script src="d3.v5.min.js"></script>
@@ -40,7 +40,7 @@
 
 <script>
 
-var intseq=d3.range(0,9);
+
 var ear=[];
 var earl=[];
 var srlist={};
@@ -48,6 +48,7 @@ var srlist={};
 
 var width = 960;
 var height = 500;
+var svg2height=40;
 
 var projection = d3.geoAlbersUsa()
     .scale(20000)
@@ -60,6 +61,9 @@ var path = d3.geoPath()
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
+var svg2 = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", svg2height);
 
 //tip
 var tip = d3.tip()
@@ -153,16 +157,42 @@ function ready([us]) {
     .datum(topojson.mesh(us, us.objects.counties, function(a, b) { return a != b; }))
       .attr("class", "county-boundary")
       .attr("d", path);
+/*
+    svg.append("circle")
+        .attr("cx",365)
+        .attr("cy",250)
+        .attr("r",7)
+        .style("fill","#FFFF00");
+*/
+    svg.append("text")
+        .attr("x",365)
+        .attr("y",250)
+        .attr("text-anchor","middle")
+        .style("fill","#FFFF00")
+        .style("font-size",15)
+        .text("Philly");
+    
+    var seq=[0,0.25,0.5,0.75,1];
+    for(var i=0;i<5;++i){
+    svg2.append("text")
+        .attr("x",(width-400)/4*i)
+        .attr("y",svg2height-5)
+        .attr("text-anchor","middle")
+        .style("fill",d3.interpolateBlues(seq[i]))
+        .style("font-size",15)
+        .text(i==0? 0:Math.pow(mx2010,seq[i]).toFixed(1));
+    }
+
 
 };
 
+
 d3.select(self.frameElement).style("height", height + "px");
 
-
 </script>
-
-  <p></p>
-
+<img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Blues.png" width="560" height="25">
+  <p><br></p>
+  
   <a href=" https://github.com/ruiyuwangwry/philly_neighbour">link to this project</a> <p></p>
 <a href="https://github.com/ruiyuwangwry/philly_neighbour/blob/master/nb.csv">CSV file of the data</a>  <p></p>
   <a href="https://ruiyuwangwry.github.io/rwang/">About me</a>  <p></p>
