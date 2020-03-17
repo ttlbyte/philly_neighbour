@@ -171,7 +171,7 @@ function ready([us]) {
         .attr("x",365)
         .attr("y",250)
         .attr("text-anchor","middle")
-        .style("fill","#FFFF00")
+        .style("fill","#FFFFFF")
         .style("font-size",15)
         .text("Philly");
     
@@ -181,7 +181,7 @@ function ready([us]) {
         .attr("x",(width-400)/4*i)
         .attr("y",svg2height-5)
         .attr("text-anchor","middle")
-        .style("fill",d3.interpolateBlues(seq[i]))
+        .style("fill",d3.interpolateTurbo(seq[i]))
         .style("font-size",15)
         .text(i==0? 0:Math.pow(mx2010,seq[i]).toFixed(1));
     }
